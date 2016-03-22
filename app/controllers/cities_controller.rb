@@ -1,19 +1,17 @@
-require 'openssl'
-
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
-  # GET /cities
+  # GET /cities - показать все города
   def index
     @cities = City.all
   end
 
-  # GET /cities/new
+  # GET /cities/new - html форма для создания нового города
   def new
     @city = City.new
   end
 
-  # POST /cities
+  # POST /cities - добавление нового города в базу
   def create
     @city = City.new(city_params)
 
@@ -25,12 +23,12 @@ class CitiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # находит город по id
     def set_city
       @city = City.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
+    # параметры, разрешенные для создания новой записи в базе данных
     def city_params
       params.require(:city).permit(:name, :latitude, :longitude, :population, :economy, :image)
     end
