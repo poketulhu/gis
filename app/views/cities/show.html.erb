@@ -1,0 +1,33 @@
+<p>
+  <strong>Город:</strong>
+  <%= @city.name %>
+</p>
+
+<p>
+  <strong>Население:</strong>
+  <%= @city.population %>
+</p>
+
+<p>
+  <strong>Широта:</strong>
+  <%= @city.latitude %>
+</p>
+
+<p>
+  <strong>Долгота:</strong>
+  <%= @city.longitude %>
+</p>
+
+<p>
+  <strong>Экономика:</strong>
+  <%= @city.economy %>
+</p>
+
+<p>
+  <strong>Фото:</strong>
+  <%= image_tag @city.image.url(:medium) %>
+</p>
+
+<%= link_to '<- Назад', cities_path %>
+
+<%= link_to 'Посмотреть на карте ->', "https://www.google.ru/maps/@#{@city.latitude},#{@city.longitude},11z" ,target: "_blank" %>

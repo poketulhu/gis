@@ -1,0 +1,55 @@
+<h1>Добавить город</h1>  
+
+<%= form_for :city, url: cities_path do |f| %>
+
+  <% if not @city.nil? and @city.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@city.errors.count, "error") %> prohibited
+      this city from being saved:</h2>
+    <ul>
+    <% @city.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+    <%= f.label  "Название"%><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label "Широта" %><br>
+    <%= f.text_field :latitude %>
+  </p>
+
+  <p>
+    <%= f.label "Долгота" %><br>
+    <%= f.text_field :longitude %>
+  </p>
+
+  <p>
+    <%= f.label "Население" %><br>
+    <%= f.text_field :population %>
+  </p>
+
+  <p>
+    <%= f.label "Экономика" %><br>
+    <%= f.text_area :economy %>
+  </p>
+
+  <p>
+    <%= f.label "Изображение" %><br />
+    <%= f.file_field :image %>
+  </p>
+
+  <p>
+    <%= f.submit 'Создать' %>
+  </p>
+
+  <% end %>
+
+  
+
+<%= link_to '<- Назад', cities_path %>

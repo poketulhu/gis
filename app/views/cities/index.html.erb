@@ -1,0 +1,12 @@
+<h1>Города</h1>
+
+<ul>
+  <% @cities.each do |city| %>
+    <li>
+      <h3>
+        <%= link_to city.name, city %>
+      </h3>
+    </li>
+  <% end -%>
+</ul>
+<%= link_to 'Добавить город', new_city_path %>
